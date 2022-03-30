@@ -8,7 +8,7 @@
 import SDWebImage
 import UIKit
 
-extension UIImageView {
+public extension UIImageView {
     func loadImage(stringURL: String) {
         sd_setImage(with: URL(string: stringURL), placeholderImage: #imageLiteral(resourceName: "Placeholder-image"))
     }
