@@ -8,7 +8,7 @@
 import UIKit
 
 protocol SelectionRepresentable: AnyObject {
-    public var isSelected: Bool { get set }
+     var isSelected: Bool { get set }
 }
 
 public final class SelectionStateManager<T: SelectionRepresentable> where T: Equatable {

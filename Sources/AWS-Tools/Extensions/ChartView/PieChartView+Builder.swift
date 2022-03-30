@@ -13,7 +13,7 @@ public extension PieChartView {
     public func build(_ chartData: [String: Int], _ label: String?, _ totalItemCount: Int) -> PieChartData? {
         
         guard let label = label else { return nil }
-        public var entries: [PieChartDataEntry] = []
+        var entries: [PieChartDataEntry] = []
         for count in chartData { entries.append(PieChartDataEntry(value: Double(count.value * 100 / totalItemCount), label: count.key)) }
         let set = PieChartDataSet(entries: entries, label: label)
         set.drawIconsEnabled = false

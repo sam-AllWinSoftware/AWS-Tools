@@ -65,7 +65,7 @@ public final class FormBuilderPDFPreview {
         table.widths = [1.0]
         table.padding = 10.0
         table.margin = 10.0
-        public var styleColum = PDFTableCellStyle()
+        var styleColum = PDFTableCellStyle()
         let lineStyle = PDFLineStyle(type: .full, color: .darkGray, width: 0.5, radius: 2)
         styleColum.borders = PDFTableCellBorders(left: lineStyle, top: lineStyle, right: lineStyle, bottom: lineStyle)
         styleColum.font = Font.systemFont(ofSize: 10)
@@ -97,7 +97,7 @@ public final class FormBuilderPDFPreview {
         table.widths = [
             0.1, 0.1, 0.1, 0.1, 0.1
         ]
-        public var styleColum = PDFTableCellStyle()
+         var styleColum = PDFTableCellStyle()
         styleColum.colors = (fill: .white, text: .white)
         table.columns.allColumnsStyle = [styleColum]
         table.padding = 5.0

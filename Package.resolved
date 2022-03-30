@@ -11,6 +11,24 @@
         }
       },
       {
+        "package": "IHProgressHUD",
+        "repositoryURL": "https://github.com/Swiftify-Corp/IHProgressHUD.git",
+        "state": {
+          "branch": null,
+          "revision": "c3e0cf90ba1b310073e841de7dc6ef0a2d4899e2",
+          "version": "0.1.8"
+        }
+      },
+      {
+        "package": "SDWebImage",
+        "repositoryURL": "https://github.com/SDWebImage/SDWebImage.git",
+        "state": {
+          "branch": null,
+          "revision": "2e63d0061da449ad0ed130768d05dceb1496de44",
+          "version": "5.12.5"
+        }
+      },
+      {
         "package": "swift-algorithms",
         "repositoryURL": "https://github.com/apple/swift-algorithms",
         "state": {
@@ -26,6 +44,15 @@
           "branch": null,
           "revision": "0a5bc04095a675662cf24757cc0640aa2204253b",
           "version": "1.0.2"
+        }
+      },
+      {
+        "package": "TPPDF",
+        "repositoryURL": "https://github.com/techprimate/TPPDF.git",
+        "state": {
+          "branch": null,
+          "revision": "e4577f5ac161d35fd4ad41e401b639ef68b81315",
+          "version": "2.3.5"
         }
       }
     ]

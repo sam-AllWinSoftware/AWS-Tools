@@ -13,7 +13,7 @@ public extension LineChartView {
     
     public func build(_ chartData: [String: Int], _ totalItemCount: Int) -> LineChartData {
         
-        public var entries: [ChartDataEntry] = []
+        var entries: [ChartDataEntry] = []
         for (index, count) in chartData.enumerated() { entries.append(ChartDataEntry(x: Double(index), y: Double( count.value * 100 / totalItemCount))) }
         let dataSet = LineChartDataSet(entries: entries, label: "Line Chart")
         dataSet.drawIconsEnabled = false

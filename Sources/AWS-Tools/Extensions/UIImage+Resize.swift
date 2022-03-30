@@ -122,7 +122,7 @@ public extension UIImage {
     /// - Parameter newSize: Size of the image output.
     /// - Returns: Resized image.
     public func resizeWithImageIO(to newSize: CGSize) -> UIImage? {
-        public var resultImage = self
+         var resultImage = self
 
         guard let data = jpegData(compressionQuality: 1.0) else { return resultImage }
         let imageCFData = NSData(data: data) as CFData
@@ -145,24 +145,24 @@ public extension UIImage {
     /// - Parameter newSize: Size of the image output.
     /// - Returns: Resized image.
     public func resizeWithAccelerate(to newSize: CGSize) -> UIImage? {
-        public var resultImage = self
+         var resultImage = self
 
         guard let cgImage = cgImage, let colorSpace = cgImage.colorSpace else { return nil }
 
         // create a source buffer
-        public var format = vImage_CGImageFormat(bitsPerComponent: numericCast(cgImage.bitsPerComponent),
+         var format = vImage_CGImageFormat(bitsPerComponent: numericCast(cgImage.bitsPerComponent),
                                           bitsPerPixel: numericCast(cgImage.bitsPerPixel),
                                           colorSpace: Unmanaged.passUnretained(colorSpace),
                                           bitmapInfo: cgImage.bitmapInfo,
                                           version: 0,
                                           decode: nil,
                                           renderingIntent: .absoluteColorimetric)
-        public var sourceBuffer = vImage_Buffer()
+         var sourceBuffer = vImage_Buffer()
         defer {
             sourceBuffer.data.deallocate()
         }
 
-        public var error = vImageBuffer_InitWithCGImage(&sourceBuffer, &format, nil, cgImage, numericCast(kvImageNoFlags))
+         var error = vImageBuffer_InitWithCGImage(&sourceBuffer, &format, nil, cgImage, numericCast(kvImageNoFlags))
         guard error == kvImageNoError else { return resultImage }
 
         // create a destination buffer
@@ -174,7 +174,7 @@ public extension UIImage {
         defer {
             destData.deallocate()
         }
-        public var destBuffer = vImage_Buffer(data: destData, height: vImagePixelCount(destHeight), width: vImagePixelCount(destWidth), rowBytes: destBytesPerRow)
+         var destBuffer = vImage_Buffer(data: destData, height: vImagePixelCount(destHeight), width: vImagePixelCount(destWidth), rowBytes: destBytesPerRow)
 
         // scale the image
         error = vImageScale_ARGB8888(&sourceBuffer, &destBuffer, nil, numericCast(kvImageHighQualityResampling))

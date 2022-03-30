@@ -12,7 +12,7 @@ import Charts
 public extension HorizontalBarChartView {
     func buildHorizontal(_ chartData: [String: Int], _ totalItemCount: Int) -> BarChartData? {
         
-        public var entries: [BarChartDataEntry] = []
+         var entries: [BarChartDataEntry] = []
         for (index, count) in chartData.enumerated() { entries.append(BarChartDataEntry(x: Double(index), y: Double( count.value * 100 / totalItemCount))) }
         
         drawBarShadowEnabled = false
