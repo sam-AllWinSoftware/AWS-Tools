@@ -7,15 +7,15 @@
 
 import UIKit
 
-extension UIActivityViewController {
+public extension UIActivityViewController {
 
-    final class Builder {
+    public final class Builder {
 
-        private var items: [Any] = []
-        private var sourceRect: CGRect?
-        private var sourceView: UIView?
-        private var activities: [UIActivity]?
-        private var direction: UIPopoverArrowDirection?
+        public var items: [Any] = []
+        public var sourceRect: CGRect?
+        public var sourceView: UIView?
+        public var activities: [UIActivity]?
+        public var direction: UIPopoverArrowDirection?
 
         @discardableResult func withItems(_ items: [Any]) -> Builder {
             self.items = items
@@ -42,7 +42,7 @@ extension UIActivityViewController {
             return self
         }
 
-        func present(in viewController: UIViewController, _ completionHandler: UIActivityViewController.CompletionWithItemsHandler? = nil) {
+        public func present(in viewController: UIViewController, _ completionHandler: UIActivityViewController.CompletionWithItemsHandler? = nil) {
             guard viewController.isViewLoaded, viewController.view.window != nil else { return }
             let activityViewController = UIActivityViewController(activityItems: items, applicationActivities: activities)
             

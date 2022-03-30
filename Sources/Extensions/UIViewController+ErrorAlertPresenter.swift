@@ -7,8 +7,8 @@
 
 import UIKit
 
-extension UIViewController {
-    func presentAlert(with error: Error) {
+public extension UIViewController {
+    public func presentAlert(with error: Error) {
         let viewError: ViewError = error as? ViewError ?? APIError.genericError
         UIAlertController
             .Builder()

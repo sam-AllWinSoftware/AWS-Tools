@@ -9,10 +9,10 @@ import Foundation
 import UIKit
 import Charts
 
-extension HorizontalBarChartView {
+public extension HorizontalBarChartView {
     func buildHorizontal(_ chartData: [String: Int], _ totalItemCount: Int) -> BarChartData? {
         
-        var entries: [BarChartDataEntry] = []
+        public var entries: [BarChartDataEntry] = []
         for (index, count) in chartData.enumerated() { entries.append(BarChartDataEntry(x: Double(index), y: Double( count.value * 100 / totalItemCount))) }
         
         drawBarShadowEnabled = false

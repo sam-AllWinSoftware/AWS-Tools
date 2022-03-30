@@ -9,11 +9,11 @@ import Foundation
 import Charts
 import UIKit
 
-extension LineChartView {
+public extension LineChartView {
     
-    func build(_ chartData: [String: Int], _ totalItemCount: Int) -> LineChartData {
+    public func build(_ chartData: [String: Int], _ totalItemCount: Int) -> LineChartData {
         
-        var entries: [ChartDataEntry] = []
+        public var entries: [ChartDataEntry] = []
         for (index, count) in chartData.enumerated() { entries.append(ChartDataEntry(x: Double(index), y: Double( count.value * 100 / totalItemCount))) }
         let dataSet = LineChartDataSet(entries: entries, label: "Line Chart")
         dataSet.drawIconsEnabled = false

@@ -2,19 +2,19 @@ import Foundation
 import UIKit
 import IHProgressHUD
 
-extension UIViewController {
+public extension UIViewController {
 
-    func remove(viewController: UIViewController) {
+    public func remove(viewController: UIViewController) {
         viewController.willMove(toParent: nil)
         viewController.removeFromParent()
         viewController.view.removeFromSuperview()
     }
     
-    func remove(from view: UIView) {
+    public func remove(from view: UIView) {
         view.subviews.forEach { $0.removeFromSuperview() }
     }
 
-    func add(viewController: UIViewController, to containingView: UIView) {
+    public func add(viewController: UIViewController, to containingView: UIView) {
         if viewController.parent != nil {
             viewController.willMove(toParent: nil)
             viewController.removeFromParent()
@@ -36,7 +36,7 @@ extension UIViewController {
         viewController.didMove(toParent: self)
     }
 
-    func cycle(from oldViewController: UIViewController, to newViewController: UIViewController, in containingView: UIView) {
+    public func cycle(from oldViewController: UIViewController, to newViewController: UIViewController, in containingView: UIView) {
         add(viewController: newViewController, to: containingView)
         UIView.transition(from: oldViewController.view, to: newViewController.view, duration: 0.2, options: [.transitionCrossDissolve, .showHideTransitionViews]) { _ in
             oldViewController.willMove(toParent: nil)
@@ -47,20 +47,20 @@ extension UIViewController {
     }
 }
 
-extension UIViewController {
+public extension UIViewController {
 
-    func showLoadingIndicator() {
+    public func showLoadingIndicator() {
         IHProgressHUD.show()
     }
 
-    func dismissLoadingIndicator() {
+    public func dismissLoadingIndicator() {
         IHProgressHUD.dismiss()
     }
 }
 
-extension UIViewController {
+public extension UIViewController {
     
-    func allowedOrientationsFor(iPhone: UIInterfaceOrientationMask, iPad: UIInterfaceOrientationMask) {
+    public func allowedOrientationsFor(iPhone: UIInterfaceOrientationMask, iPad: UIInterfaceOrientationMask) {
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
             switch traitCollection.userInterfaceIdiom {
             case .phone:
@@ -75,7 +75,7 @@ extension UIViewController {
         }
     }
     
-    private func setUpOrientation(_ orientation: UIInterfaceOrientationMask) {
+    public func setUpOrientation(_ orientation: UIInterfaceOrientationMask) {
         switch orientation {
         case .portrait:
             setDeviceOrientation(UIInterfaceOrientation.portrait)
@@ -90,7 +90,7 @@ extension UIViewController {
         }
     }
     
-    private func setDeviceOrientation(_ orientation: UIInterfaceOrientation) {
+    public func setDeviceOrientation(_ orientation: UIInterfaceOrientation) {
         UIDevice.current.setValue(orientation.rawValue, forKey: "orientation")
     }
 }

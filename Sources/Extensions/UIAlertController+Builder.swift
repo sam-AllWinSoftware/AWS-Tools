@@ -7,19 +7,19 @@
 
 import UIKit
 
-extension UIAlertController {
+public extension UIAlertController {
 
-    final class Builder {
+    public final class Builder {
 
-        private var title: String?
-        private var message: String?
-        private var actions: [UIAlertAction] = []
-        private var alertStyle: UIAlertController.Style = .alert
-        private var presentationStyle: UIModalPresentationStyle = .automatic
-        private var allowedArrowDirection: UIPopoverArrowDirection = .any
-        private var sourceView: UIView?
-        private var sourceRect: CGRect?
-        private var showTextField = false
+        public var title: String?
+        public var message: String?
+        public var actions: [UIAlertAction] = []
+        public var alertStyle: UIAlertController.Style = .alert
+        public var presentationStyle: UIModalPresentationStyle = .automatic
+        public var allowedArrowDirection: UIPopoverArrowDirection = .any
+        public var sourceView: UIView?
+        public var sourceRect: CGRect?
+        public var showTextField = false
         
         public var textFields: [UITextField]?
 
@@ -75,7 +75,7 @@ extension UIAlertController {
             return self
         }
 
-        func present(in viewController: UIViewController?) {
+        public func present(in viewController: UIViewController?) {
             guard let viewController = viewController, viewController.isViewLoaded, viewController.view.window != nil else { return }
             let alert = UIAlertController(title: self.title, message: self.message, preferredStyle: self.alertStyle)
             alert.modalPresentationStyle = presentationStyle
@@ -97,7 +97,7 @@ extension UIAlertController {
     }
 }
 
-var topViewController: UIViewController? {
+public var topViewController: UIViewController? {
 
     if var topViewController = UIApplication.shared.windows.filter({$0.isKeyWindow}).first?.rootViewController {
         while let presentedViewController = topViewController.presentedViewController {

@@ -1,6 +1,6 @@
 import UIKit
 
-extension UIColor {
+public extension UIColor {
     convenience init(hex: String, alpha: CGFloat = 1.0) {
         let hexString: String = hex.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         let scanner = Scanner(string: hexString)
@@ -18,11 +18,11 @@ extension UIColor {
         let blue  = CGFloat(b) / 255.0
         self.init(red: red, green: green, blue: blue, alpha: alpha)
     }
-    func toHexString() -> String {
-        var r: CGFloat = 0
-        var g: CGFloat = 0
-        var b: CGFloat = 0
-        var a: CGFloat = 0
+    public func toHexString() -> String {
+        public var r: CGFloat = 0
+        public var g: CGFloat = 0
+        public var b: CGFloat = 0
+        public var a: CGFloat = 0
         getRed(&r, green: &g, blue: &b, alpha: &a)
         let rgb: Int = (Int) (r * 255) << 16 | (Int) (g * 255) << 8 | (Int) (b * 255) << 0
         return String(format: "#%06x", rgb)

@@ -9,13 +9,13 @@ import Foundation
 import UIKit
 import Charts
 
-extension BarChartView {
-    func build(_ chartData: [String: Int], _ totalItemCount: Int) -> BarChartData? {
+public extension BarChartView {
+    public func build(_ chartData: [String: Int], _ totalItemCount: Int) -> BarChartData? {
         
-        var entries: [BarChartDataEntry] = []
+        public var entries: [BarChartDataEntry] = []
         for (index, count) in chartData.enumerated() { entries.append(BarChartDataEntry(x: Double(index), y: Double( count.value * 100 / totalItemCount))) }
         
-        var set1: BarChartDataSet! = nil
+        public var set1: BarChartDataSet! = nil
         if let set = data?.first as? BarChartDataSet {
             set1 = set
             set1.replaceEntries(entries)

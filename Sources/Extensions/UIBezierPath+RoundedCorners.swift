@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-extension UIBezierPath {
+public extension UIBezierPath {
 
     convenience init(shouldRoundRect rect: CGRect, topLeftRadius: CGFloat, topRightRadius: CGFloat, bottomLeftRadius: CGFloat, bottomRightRadius: CGFloat) {
         self.init()

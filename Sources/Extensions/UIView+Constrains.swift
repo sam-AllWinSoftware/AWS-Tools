@@ -1,11 +1,11 @@
 import UIKit
 
-extension UIView {
+public extension UIView {
 
     /// Adds a view as a subview and constrains it to the edges
     ///
     /// - Parameter subview: view to add as subview and constrain
-    internal func addSubViewWithFillConstraints(_ subview: UIView, margin: CGFloat = 0) {
+    public func addSubViewWithFillConstraints(_ subview: UIView, margin: CGFloat = 0) {
         addSubview(subview)
         subview.translatesAutoresizingMaskIntoConstraints = false
 
@@ -15,7 +15,7 @@ extension UIView {
         subview.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -margin).isActive = true
     }
 
-    func addSubViewWithCenteredConstraints(_ subView: UIView) {
+    public func addSubViewWithCenteredConstraints(_ subView: UIView) {
         addSubview(subView)
         subView.translatesAutoresizingMaskIntoConstraints = false
         subView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true

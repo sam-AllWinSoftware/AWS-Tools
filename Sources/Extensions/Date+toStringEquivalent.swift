@@ -7,8 +7,8 @@
 
 import Foundation
 
-extension Date {
-    func toStringEquivalent(dateFormat format: String = "yyyy-MM-dd HH:mm:ss Z") -> String {
+public extension Date {
+    public func toStringEquivalent(dateFormat format: String = "yyyy-MM-dd HH:mm:ss Z") -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = format
         return dateFormatter.string(from: self)

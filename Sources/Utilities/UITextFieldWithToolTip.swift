@@ -1,11 +1,11 @@
 import UIKit
 
-final class UITextFieldWithToolTip: UITextField {
+public final class UITextFieldWithToolTip: UITextField {
     
-    var toolTipIsVisible: Bool = false
-    private var UIToolTip = UIView()
+    public var toolTipIsVisible: Bool = false
+    public var UIToolTip = UIView()
     
-    private var toolTipLabel: UILabel = {
+    public var toolTipLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 12)
         label.contentMode = .center
@@ -16,13 +16,13 @@ final class UITextFieldWithToolTip: UITextField {
         return label
     }()
     
-    private var shapeLayer: CAShapeLayer = {
+    public var shapeLayer: CAShapeLayer = {
         let layer = CAShapeLayer()
         layer.fillColor = ThemeFactory.color(.sunOrange)
         return layer
     }()
     
-    private func pointerPath(_ pointerTip: CGPoint, _ pointerBaseLeft: CGPoint, _ pointerBaseRight: CGPoint) -> UIBezierPath {
+    public func pointerPath(_ pointerTip: CGPoint, _ pointerBaseLeft: CGPoint, _ pointerBaseRight: CGPoint) -> UIBezierPath {
         let pointer = UIBezierPath()
         pointer.move(to: pointerBaseLeft)
         pointer.addLine(to: pointerTip)
@@ -31,7 +31,7 @@ final class UITextFieldWithToolTip: UITextField {
         return pointer
     }
     
-    private func toolTipLabelSetConstrains() {
+    public func toolTipLabelSetConstrains() {
         
         toolTipLabel.translatesAutoresizingMaskIntoConstraints = false
         toolTipLabel.bottomAnchor.constraint(equalTo: UIToolTip.bottomAnchor, constant: -8).isActive = true
@@ -40,7 +40,7 @@ final class UITextFieldWithToolTip: UITextField {
         toolTipLabel.trailingAnchor.constraint(equalTo: UIToolTip.trailingAnchor).isActive = true
     }
     
-    private func uiToolTipSetConstrains(labelWidth: CGFloat, labelHeight: CGFloat) {
+    public func uiToolTipSetConstrains(labelWidth: CGFloat, labelHeight: CGFloat) {
         
         UIToolTip.translatesAutoresizingMaskIntoConstraints = false
         UIToolTip.bottomAnchor.constraint(equalTo: topAnchor, constant: -12 + 8).isActive = true
@@ -49,7 +49,7 @@ final class UITextFieldWithToolTip: UITextField {
         UIToolTip.widthAnchor.constraint(equalToConstant: labelWidth).isActive = true
     }
     
-    func displayTooltip(_ message: String, _ completion: (() -> Void)? = nil) {
+    public func displayTooltip(_ message: String, _ completion: (() -> Void)? = nil) {
         
         let padding = CGPoint(x: 18, y: 12)
         toolTipIsVisible = true
@@ -76,7 +76,7 @@ final class UITextFieldWithToolTip: UITextField {
         })
     }
     
-    func hideToolTipIfIsVisible() {
+    public func hideToolTipIfIsVisible() {
         guard toolTipIsVisible else { return }
         UIView.animate(withDuration: 0.5, delay: 2, animations: { self.UIToolTip.alpha = 0 }) { _ in
             self.UIToolTip.removeFromSuperview()
@@ -85,13 +85,13 @@ final class UITextFieldWithToolTip: UITextField {
     }
 }
 
-extension String {
+public extension String {
     
     enum DimensionType {
         case width, height
     }
     
-    func setTextDimension(withMeasure constrainedMeasure: CGFloat, font: UIFont, _ dimensionType: DimensionType) -> CGFloat {
+    public func setTextDimension(withMeasure constrainedMeasure: CGFloat, font: UIFont, _ dimensionType: DimensionType) -> CGFloat {
         
         let constraintRect = dimensionType == .height ?
         CGSize(width: .greatestFiniteMagnitude, height: constrainedMeasure) :

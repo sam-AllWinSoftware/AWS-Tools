@@ -4,6 +4,6 @@
 
 import UIKit
 
-var isPhone: Bool {
+public var isPhone: Bool {
     UIDevice.current.userInterfaceIdiom == .phone
 }

@@ -1,11 +1,11 @@
 import UIKit
 import TPPDF
 
-final class FormBuilderPDFPreview {
+public final class FormBuilderPDFPreview {
     
     // MARK: Private properties
-    private var document: PDFDocument!
-    private var generator: PDFGeneratorProtocol!
+    public var document: PDFDocument!
+    public var generator: PDFGeneratorProtocol!
     
     // MARK: Public methods
     public func withFormat(_ format: PDFPageFormat) -> Self {
@@ -35,7 +35,7 @@ final class FormBuilderPDFPreview {
     }
     
     // MARK: Private methods
-    private func addNumberOfPages() -> PDFPagination {
+    public func addNumberOfPages() -> PDFPagination {
         PDFPagination(container: .footerRight,
                       style: PDFPaginationStyle.customClosure { (page, total) in
                         "\(page) / \(total)"
@@ -46,7 +46,7 @@ final class FormBuilderPDFPreview {
                       ])
     }
     
-    private func drawRows(_ fieldRows: [FieldRow]) {
+    public func drawRows(_ fieldRows: [FieldRow]) {
         fieldRows.forEach { fieldRow in
             switch fieldRow.field {
             case .rating:
@@ -57,7 +57,7 @@ final class FormBuilderPDFPreview {
         }
     }
     
-    private func drawText(_ fieldRow: FieldRow) {
+    public func drawText(_ fieldRow: FieldRow) {
         
         let text = "Empty"
         let table = PDFTable(rows: 1, columns: 1)
@@ -65,7 +65,7 @@ final class FormBuilderPDFPreview {
         table.widths = [1.0]
         table.padding = 10.0
         table.margin = 10.0
-        var styleColum = PDFTableCellStyle()
+        public var styleColum = PDFTableCellStyle()
         let lineStyle = PDFLineStyle(type: .full, color: .darkGray, width: 0.5, radius: 2)
         styleColum.borders = PDFTableCellBorders(left: lineStyle, top: lineStyle, right: lineStyle, bottom: lineStyle)
         styleColum.font = Font.systemFont(ofSize: 10)
@@ -85,7 +85,7 @@ final class FormBuilderPDFPreview {
     }
     
     // TODO: Add logic for filled start
-    private func drawRating(_ fieldRow: FieldRow) {
+    public func drawRating(_ fieldRow: FieldRow) {
         let table = PDFTable(rows: 1, columns: 5)
         let imageRatingFill = UIImage(named: "RatingFill")
         let imageStroke = UIImage(named: "RatingStroke")
@@ -97,7 +97,7 @@ final class FormBuilderPDFPreview {
         table.widths = [
             0.1, 0.1, 0.1, 0.1, 0.1
         ]
-        var styleColum = PDFTableCellStyle()
+        public var styleColum = PDFTableCellStyle()
         styleColum.colors = (fill: .white, text: .white)
         table.columns.allColumnsStyle = [styleColum]
         table.padding = 5.0

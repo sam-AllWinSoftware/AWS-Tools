@@ -8,27 +8,27 @@
 import UIKit
 
 protocol SelectionRepresentable: AnyObject {
-    var isSelected: Bool { get set }
+    public var isSelected: Bool { get set }
 }
 
-final class SelectionStateManager<T: SelectionRepresentable> where T: Equatable {
+public final class SelectionStateManager<T: SelectionRepresentable> where T: Equatable {
 
-    var fields: [T] = []
-    var allowsMultipleSelection: Bool
+    public var fields: [T] = []
+    public var allowsMultipleSelection: Bool
 
     init(allowsMultipleSelection: Bool = true) {
         self.allowsMultipleSelection = allowsMultipleSelection
     }
 
-    func selectField(at index: Int) {
+    public func selectField(at index: Int) {
         fields[index].isSelected = true
     }
 
-    func deselectField(at index: Int) {
+    public func deselectField(at index: Int) {
         fields[index].isSelected = false
     }
 
-    func fieldDidUpdate(isSelected: Bool, entity: T, didFinish: (() -> Void)? = nil) {
+    public func fieldDidUpdate(isSelected: Bool, entity: T, didFinish: (() -> Void)? = nil) {
 
         if !allowsMultipleSelection {
             fields.forEach { $0.isSelected = false }
@@ -46,7 +46,7 @@ enum SelectionButtonStageImages {
     case radio
     case dropdown
 
-    var selectedImage: UIImage {
+    public var selectedImage: UIImage {
         switch self {
         case .checkbox: return UIImage(named: "SelectedCheckBox")!
         case .radio: return UIImage(named: "SelectedRadio")!
@@ -54,7 +54,7 @@ enum SelectionButtonStageImages {
         }
     }
 
-    var unselectedImage: UIImage {
+    public var unselectedImage: UIImage {
         switch self {
         case .checkbox: return UIImage(named: "UnSelectedCheckBox")!
         case .radio: return UIImage(named: "UnSelectedRadio")!
@@ -65,8 +65,8 @@ enum SelectionButtonStageImages {
 
 open class SelectionButton: UIButton, SelectionRepresentable {
 
-    var selectionDidUpdate: ((Bool) -> Void)?
-    var selectionButtonType: SelectionButtonStageImages = .checkbox {
+    public var selectionDidUpdate: ((Bool) -> Void)?
+    public var selectionButtonType: SelectionButtonStageImages = .checkbox {
         didSet {
             setUI()
         }
@@ -87,7 +87,7 @@ open class SelectionButton: UIButton, SelectionRepresentable {
         setUI()
     }
 
-    private func setUI() {
+    public func setUI() {
         setImage(selectionButtonType.unselectedImage, for: .normal)
         setImage(selectionButtonType.selectedImage, for: .selected)
         addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
@@ -96,7 +96,7 @@ open class SelectionButton: UIButton, SelectionRepresentable {
         }
     }
 
-    func applyStyleDropDown() {
+    public func applyStyleDropDown() {
         borderWidth = 0.5
         borderColor = UIColor(named: "ApplicationTint")
         contentHorizontalAlignment = .right
@@ -109,7 +109,7 @@ open class SelectionButton: UIButton, SelectionRepresentable {
         cornerRadius = 10
     }
 
-    @objc private func buttonTapped() {
+    @objc public func buttonTapped() {
         isSelected.toggle()
         selectionDidUpdate?(isSelected)
     }

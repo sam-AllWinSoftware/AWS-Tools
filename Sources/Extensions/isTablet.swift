@@ -5,6 +5,6 @@
 
 import UIKit
 
-var isTablet: Bool {
+public var isTablet: Bool {
     UIDevice.current.userInterfaceIdiom == .pad
 }
