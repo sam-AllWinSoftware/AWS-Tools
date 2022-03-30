@@ -40,7 +40,7 @@ public final class SelectionStateManager<T: SelectionRepresentable> where T: Equ
     }
 }
 
-enum SelectionButtonStageImages {
+public enum SelectionButtonStageImages {
 
     case checkbox
     case radio
