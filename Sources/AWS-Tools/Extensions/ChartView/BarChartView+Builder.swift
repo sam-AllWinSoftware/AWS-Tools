@@ -12,10 +12,10 @@ import Charts
 public extension BarChartView {
     public func build(_ chartData: [String: Int], _ totalItemCount: Int) -> BarChartData? {
         
-        public var entries: [BarChartDataEntry] = []
+        var entries: [BarChartDataEntry] = []
         for (index, count) in chartData.enumerated() { entries.append(BarChartDataEntry(x: Double(index), y: Double( count.value * 100 / totalItemCount))) }
         
-        public var set1: BarChartDataSet! = nil
+        var set1: BarChartDataSet! = nil
         if let set = data?.first as? BarChartDataSet {
             set1 = set
             set1.replaceEntries(entries)
