@@ -3,9 +3,9 @@ import AVFoundation
 
 public final class UIViewVideoPlayer: UIView {
     
-    public var playerObserver: Any?
-    public var loopVideo: Bool = true
-    override class var layerClass: AnyClass {
+     var playerObserver: Any?
+     var loopVideo: Bool = true
+    public override class var layerClass: AnyClass {
         return AVPlayerLayer.self
     }
 

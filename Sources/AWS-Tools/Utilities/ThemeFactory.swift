@@ -3,15 +3,15 @@ import SwiftUI
 
 public enum ThemeFactory {
     
-    public static func font(_ sunFont: SunFont) -> UIFont? {
+     static func font(_ sunFont: SunFont) -> UIFont? {
         return sunFont.font
     }
 
-    public static func color(_ themeColor: SunColor) -> UIColor? {
+     static func color(_ themeColor: SunColor) -> UIColor? {
         return themeColor.color
     }
     
-    public static func color(_ themeColor: SunColor) -> CGColor? {
+     static func color(_ themeColor: SunColor) -> CGColor? {
         return color(themeColor)?.cgColor
     }
 }
