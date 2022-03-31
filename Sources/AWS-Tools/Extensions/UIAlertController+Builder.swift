@@ -9,7 +9,7 @@ import UIKit
 
 public extension UIAlertController {
 
-    public final class Builder {
+     final class Builder {
 
         public var title: String?
         public var message: String?

@@ -11,7 +11,7 @@ import UIKit
 
 public extension LineChartView {
     
-    public func build(_ chartData: [String: Int], _ totalItemCount: Int) -> LineChartData {
+     func build(_ chartData: [String: Int], _ totalItemCount: Int) -> LineChartData {
         
         var entries: [ChartDataEntry] = []
         for (index, count) in chartData.enumerated() { entries.append(ChartDataEntry(x: Double(index), y: Double( count.value * 100 / totalItemCount))) }

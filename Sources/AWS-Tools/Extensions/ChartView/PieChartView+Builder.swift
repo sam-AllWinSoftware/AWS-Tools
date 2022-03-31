@@ -10,7 +10,7 @@ import Charts
 
 public extension PieChartView {
     
-    public func build(_ chartData: [String: Int], _ label: String?, _ totalItemCount: Int) -> PieChartData? {
+     func build(_ chartData: [String: Int], _ label: String?, _ totalItemCount: Int) -> PieChartData? {
         
         guard let label = label else { return nil }
         var entries: [PieChartDataEntry] = []

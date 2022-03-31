@@ -10,7 +10,7 @@ import UIKit
 import Charts
 
 public extension BarChartView {
-    public func build(_ chartData: [String: Int], _ totalItemCount: Int) -> BarChartData? {
+     func build(_ chartData: [String: Int], _ totalItemCount: Int) -> BarChartData? {
         
         var entries: [BarChartDataEntry] = []
         for (index, count) in chartData.enumerated() { entries.append(BarChartDataEntry(x: Double(index), y: Double( count.value * 100 / totalItemCount))) }

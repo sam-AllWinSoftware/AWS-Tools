@@ -9,7 +9,7 @@ import UIKit
 
 public extension UIActivityViewController {
 
-    public final class Builder {
+     final class Builder {
 
         public var items: [Any] = []
         public var sourceRect: CGRect?

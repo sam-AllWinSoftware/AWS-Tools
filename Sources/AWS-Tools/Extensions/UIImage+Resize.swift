@@ -11,7 +11,7 @@ import Accelerate
 
 public extension UIImage {
 
-    public enum ResizeFramework {
+     enum ResizeFramework {
         case uikit, coreImage, coreGraphics, imageIO, accelerate
     }
 
@@ -21,7 +21,7 @@ public extension UIImage {
     /// - Parameter resizeFramework: Technique for image resizing: UIKit / CoreImage / CoreGraphics / ImageIO / Accelerate.
     /// - Returns: Resized image.
 
-    public func resizeWithScaleAspectFitMode(to dimension: CGFloat, resizeFramework: ResizeFramework = .coreGraphics) -> UIImage? {
+     func resizeWithScaleAspectFitMode(to dimension: CGFloat, resizeFramework: ResizeFramework = .coreGraphics) -> UIImage? {
 
         if max(size.width, size.height) <= dimension { return self }
 
@@ -44,7 +44,7 @@ public extension UIImage {
     /// - Parameter newSize: Size of the image output.
     /// - Parameter resizeFramework: Technique for image resizing: UIKit / CoreImage / CoreGraphics / ImageIO / Accelerate.
     /// - Returns: Resized image.
-    public func resize(to newSize: CGSize, with resizeFramework: ResizeFramework = .coreGraphics) -> UIImage? {
+     func resize(to newSize: CGSize, with resizeFramework: ResizeFramework = .coreGraphics) -> UIImage? {
         switch resizeFramework {
             case .uikit: return resizeWithUIKit(to: newSize)
             case .coreGraphics: return resizeWithCoreGraphics(to: newSize)
@@ -60,7 +60,7 @@ public extension UIImage {
     ///
     /// - Parameter newSize: Size of the image output.
     /// - Returns: Resized image.
-    public func resizeWithUIKit(to newSize: CGSize) -> UIImage? {
+     func resizeWithUIKit(to newSize: CGSize) -> UIImage? {
         UIGraphicsBeginImageContextWithOptions(newSize, true, 1.0)
         self.draw(in: CGRect(origin: .zero, size: newSize))
         defer { UIGraphicsEndImageContext() }
@@ -74,7 +74,7 @@ public extension UIImage {
     /// - Parameter newSize: Size of the image output.
     /// - Returns: Resized image.
     // https://developer.apple.com/library/archive/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html
-    public func resizeWithCoreImage(to newSize: CGSize) -> UIImage? {
+     func resizeWithCoreImage(to newSize: CGSize) -> UIImage? {
         guard let cgImage = cgImage, let filter = CIFilter(name: "CILanczosScaleTransform") else { return nil }
 
         let ciImage = CIImage(cgImage: cgImage)
@@ -95,7 +95,7 @@ public extension UIImage {
     ///
     /// - Parameter newSize: Size of the image output.
     /// - Returns: Resized image.
-    public func resizeWithCoreGraphics(to newSize: CGSize) -> UIImage? {
+     func resizeWithCoreGraphics(to newSize: CGSize) -> UIImage? {
         guard let cgImage = cgImage, let colorSpace = cgImage.colorSpace else { return nil }
 
         let width = Int(newSize.width)
@@ -121,7 +121,7 @@ public extension UIImage {
     ///
     /// - Parameter newSize: Size of the image output.
     /// - Returns: Resized image.
-    public func resizeWithImageIO(to newSize: CGSize) -> UIImage? {
+     func resizeWithImageIO(to newSize: CGSize) -> UIImage? {
          var resultImage = self
 
         guard let data = jpegData(compressionQuality: 1.0) else { return resultImage }
@@ -144,7 +144,7 @@ public extension UIImage {
     ///
     /// - Parameter newSize: Size of the image output.
     /// - Returns: Resized image.
-    public func resizeWithAccelerate(to newSize: CGSize) -> UIImage? {
+     func resizeWithAccelerate(to newSize: CGSize) -> UIImage? {
          var resultImage = self
 
         guard let cgImage = cgImage, let colorSpace = cgImage.colorSpace else { return nil }

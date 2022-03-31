@@ -9,15 +9,15 @@ import SDWebImage
 import UIKit
 
 public extension UIImageView {
-    public func loadImage(stringURL: String) {
+     func loadImage(stringURL: String) {
         sd_setImage(with: URL(string: stringURL), placeholderImage: #imageLiteral(resourceName: "Placeholder-image"))
     }
     
-    public func setActivityIndicator() {
+     func setActivityIndicator() {
         sd_imageIndicator = SDWebImageActivityIndicator.grayLarge
     }
     
-    public func loadImage(data: Data) {
+     func loadImage(data: Data) {
             self.image = UIImage(data: data)
     }
 }
