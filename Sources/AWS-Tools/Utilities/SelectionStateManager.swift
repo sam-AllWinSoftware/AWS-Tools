@@ -11,10 +11,10 @@ protocol SelectionRepresentable: AnyObject {
      var isSelected: Bool { get set }
 }
 
-public final class SelectionStateManager<T: SelectionRepresentable> where T: Equatable {
+ final class SelectionStateManager<T: SelectionRepresentable> where T: Equatable {
 
-    public var fields: [T] = []
-    public var allowsMultipleSelection: Bool
+     var fields: [T] = []
+     var allowsMultipleSelection: Bool
 
     init(allowsMultipleSelection: Bool = true) {
         self.allowsMultipleSelection = allowsMultipleSelection
@@ -65,8 +65,8 @@ public enum SelectionButtonStageImages {
 
 open class SelectionButton: UIButton, SelectionRepresentable {
 
-    public var selectionDidUpdate: ((Bool) -> Void)?
-    public var selectionButtonType: SelectionButtonStageImages = .checkbox {
+     var selectionDidUpdate: ((Bool) -> Void)?
+     var selectionButtonType: SelectionButtonStageImages = .checkbox {
         didSet {
             setUI()
         }
