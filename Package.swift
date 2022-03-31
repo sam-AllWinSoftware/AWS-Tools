@@ -1,4 +1,4 @@
-// swift-tools-version:5.5
+// swift-tools-version:5.5.0
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -18,7 +18,12 @@ let package = Package(
          .package(url: "https://github.com/SDWebImage/SDWebImage.git", from: "5.0.0"),
          .package(url: "https://github.com/Swiftify-Corp/IHProgressHUD.git", from: "0.1.6"),
          .package(url: "https://github.com/techprimate/TPPDF.git", from: "2.3.5"),
+         .package(name: "Backendless", url: "https://github.com/Backendless/Swift-SDK", branch: "master"),
+         .package(name: "SocketIO", url: "https://github.com/socketio/socket.io-client-swift.git", branch: "master"),
+
         
+       
+      
        
     ],
     targets: [
@@ -26,7 +31,7 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "AWS-Tools",
-            dependencies: ["Charts","SDWebImage","IHProgressHUD","TPPDF"]),
+            dependencies: ["Charts","SDWebImage","IHProgressHUD","TPPDF","Backendless","SocketIO"]),
         .testTarget(
             name: "AWS-ToolsTests",
             dependencies: ["AWS-Tools"]),

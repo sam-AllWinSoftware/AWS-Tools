@@ -1,17 +1,17 @@
 import UIKit
 import SwiftUI
 
-public enum ThemeFactory {
+enum ThemeFactory {
     
-     static func font(_ sunFont: SunFont) -> UIFont? {
+    static func font(_ sunFont: SunFont) -> UIFont? {
         return sunFont.font
     }
 
-     static func color(_ themeColor: SunColor) -> UIColor? {
+    static func color(_ themeColor: SunColor) -> UIColor? {
         return themeColor.color
     }
     
-     static func color(_ themeColor: SunColor) -> CGColor? {
+    static func color(_ themeColor: SunColor) -> CGColor? {
         return color(themeColor)?.cgColor
     }
 }
